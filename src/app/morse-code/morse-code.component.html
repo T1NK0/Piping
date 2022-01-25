@@ -1,0 +1,9 @@
+<div>
+    <input type="text" class="form-field" placeholder="text" [(ngModel)]="userInput"/>
+</div>
+
+<div>
+    <p>As morse: {{userInput | convertToMorse}}</p>
+    <p>As md5:{{userInput}}</p> 
+</div>
+
