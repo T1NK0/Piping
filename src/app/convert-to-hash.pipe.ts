@@ -1,37 +1,18 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { isEmpty } from 'rxjs';
+import { Md5 } from 'ts-md5';
 
 @Pipe({
   name: 'convertToHash'
 })
 export class ConvertToHashPipe implements PipeTransform {
   transform(userInput: string, args?: any): string {
-
-    let userInputKeys = userInput.split('');
-    let hash = "";
-
-    for (let character of userInputKeys){
-      switch(character) {
-        case 'a':
-          // code block
-          hash += '';
-          break;
-        case 'b':
-          // code block
-          hash +=  '';
-          break;
-        case 'c':
-          // code block
-          hash +=  '';
-          break;
-        case 'd':
-          // code block
-          hash +=  '';
-          break;
-        default:
-          // code block
-          return '';
-      }
+    if(userInput != "") {
+      return Md5.hashStr(userInput);
     }
-    return hash;
+    else{
+      return "";
+    }
+    
   }
 }
